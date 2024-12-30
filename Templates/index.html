@@ -1,0 +1,738 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+
+	<title>AI-vBrain</title>
+	<link rel="preload" data-rocket-preload as="style"
+		href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap" />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap"
+		media="print" onload="this.media='all'" /><noscript>
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css?family=Roboto%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic%7CRoboto%20Slab%3A100%2C100italic%2C200%2C200italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C600%2C600italic%2C700%2C700italic%2C800%2C800italic%2C900%2C900italic&amp;display=swap" />
+	</noscript>
+	<link rel="preload" data-rocket-preload as="style"
+		href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" />
+	<link rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+		media="print" onload="this.media='all'" /><noscript>
+		<link rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap" />
+	</noscript>
+	<link rel="preload" data-rocket-preload as="image"
+		href="https://ninetheme.com/themes/genai/wp-content/uploads/2023/10/blurry-shape-1.svg" fetchpriority="high">
+	<meta name='robots' content='noindex, nofollow' />
+	<link rel='dns-prefetch' href='http://fonts.googleapis.com/' />
+	<link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
+	<link rel="alternate" type="application/rss+xml" title="AI Content WP Theme &raquo; Feed"
+		href="https://ninetheme.com/themes/genai/feed/" />
+	<link rel="alternate" type="application/rss+xml" title="AI Content WP Theme &raquo; Comments Feed"
+		href="https://ninetheme.com/themes/genai/comments/feed/" />
+
+	<link rel='stylesheet' href='https://ninetheme.com/themes/genai/wp-content/themes/genai-child/style.css?ver=1.0.1'
+		type='text/css' media='all' />
+	<style id='genai-custom-style-inline-css' type='text/css'>
+		div#nt-preloader {
+			background-color: #f1f1f1;
+			overflow: hidden;
+			background-repeat: no-repeat;
+			background-position: center center;
+			height: 100%;
+			left: 0;
+			position: fixed;
+			top: 0;
+			width: 100%;
+			z-index: 9999999;
+		}
+
+		.loader12 {
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			position: relative;
+			animation: loader12 1s linear alternate infinite;
+			top: 50%;
+			margin: -50px auto 0;
+		}
+
+		@keyframes loader12 {
+			0% {
+				box-shadow: -60px 40px 0 2px #000, -30px 40px 0 0 rgba(0, 0, 0, 0.2), 0 40px 0 0 rgba(0, 0, 0, 0.2), 30px 40px 0 0 rgba(0, 0, 0, 0.2), 60px 40px 0 0 rgba(0, 0, 0, 0.2);
+			}
+
+			25% {
+				box-shadow: -60px 40px 0 0 rgba(0, 0, 0, 0.2), -30px 40px 0 2px #000, 0 40px 0 0 rgba(0, 0, 0, 0.2), 30px 40px 0 0 rgba(0, 0, 0, 0.2), 60px 40px 0 0 rgba(0, 0, 0, 0.2);
+			}
+
+			50% {
+				box-shadow: -60px 40px 0 0 rgba(0, 0, 0, 0.2), -30px 40px 0 0 rgba(0, 0, 0, 0.2), 0 40px 0 2px #000, 30px 40px 0 0 rgba(0, 0, 0, 0.2), 60px 40px 0 0 rgba(0, 0, 0, 0.2);
+			}
+
+			75% {
+				box-shadow: -60px 40px 0 0 rgba(0, 0, 0, 0.2), -30px 40px 0 0 rgba(0, 0, 0, 0.2), 0 40px 0 0 rgba(0, 0, 0, 0.2), 30px 40px 0 2px #000, 60px 40px 0 0 rgba(0, 0, 0, 0.2);
+			}
+
+			100% {
+				box-shadow: -60px 40px 0 0 rgba(0, 0, 0, 0.2), -30px 40px 0 0 rgba(0, 0, 0, 0.2), 0 40px 0 0 rgba(0, 0, 0, 0.2), 30px 40px 0 0 rgba(0, 0, 0, 0.2), 60px 40px 0 2px #000;
+			}
+		}
+
+		body .genai-woocommerce-pagination ul {
+			justify-content: center;
+		}
+	</style>
+	<link rel='stylesheet' id='elementor-frontend-css'
+		href='https://ninetheme.com/themes/genai/wp-content/plugins/elementor/assets/css/frontend-lite.min.css?ver=3.23.4'
+		type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-post-668-css'
+		href='https://ninetheme.com/themes/genai/wp-content/uploads/elementor/css/post-668.css?ver=1723988890'
+		type='text/css' media='all' />
+	<link data-minify="1" rel='stylesheet' id='font-awesome-5-all-css'
+		href='https://ninetheme.com/themes/genai/wp-content/cache/min/1/themes/genai/wp-content/plugins/elementor/assets/lib/font-awesome/css/all.min.css?ver=1723988891'
+		type='text/css' media='all' />
+	<link rel='stylesheet' id='font-awesome-4-shim-css'
+		href='https://ninetheme.com/themes/genai/wp-content/plugins/elementor/assets/lib/font-awesome/css/v4-shims.min.css?ver=3.23.4'
+		type='text/css' media='all' />
+	<link rel='stylesheet' id='elementor-post-1441-css'
+		href='https://ninetheme.com/themes/genai/wp-content/uploads/elementor/css/post-1441.css?ver=1723988911'
+		type='text/css' media='all' />
+
+	<link data-minify="1" rel='stylesheet' id='genai-plugins-css'
+		href='https://ninetheme.com/themes/genai/wp-content/cache/min/1/themes/genai/wp-content/themes/genai/css/genai-plugins.css?ver=1723988891'
+		type='text/css' media='all' />
+	<link data-minify="1" rel='stylesheet' id='genai-style-css'
+		href='https://ninetheme.com/themes/genai/wp-content/cache/background-css/ninetheme.com/themes/genai/wp-content/cache/min/1/themes/genai/wp-content/themes/genai/css/genai-style.css?ver=1723988891&amp;wpr_t=1724010299'
+		type='text/css' media='all' />
+
+	<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+	<script type="text/javascript"
+		src="https://ninetheme.com/themes/genai/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"
+		id="jquery-core-js"></script>
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+		data-rocket-src="https://ninetheme.com/themes/genai/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"
+		id="jquery-migrate-js"></script>
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+		data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/woocommerce/assets/js/jquery-blockui/jquery.blockUI.min.js?ver=2.7.0-wc.9.1.4"
+		id="jquery-blockui-js" defer="defer" data-wp-strategy="defer"></script>
+	<script type="text/javascript" id="wc-add-to-cart-js-extra">
+		/* <![CDATA[ */
+		var wc_add_to_cart_params = { "ajax_url": "\/themes\/genai\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/themes\/genai\/?wc-ajax=%%endpoint%%", "i18n_view_cart": "View cart", "cart_url": "https:\/\/ninetheme.com\/themes\/genai\/cart\/", "is_cart": "", "cart_redirect_after_add": "no" };
+		/* ]]> */
+	</script>
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+		data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/woocommerce/assets/js/frontend/add-to-cart.min.js?ver=9.1.4"
+		id="wc-add-to-cart-js" defer="defer" data-wp-strategy="defer"></script>
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+		data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/woocommerce/assets/js/js-cookie/js.cookie.min.js?ver=2.1.4-wc.9.1.4"
+		id="js-cookie-js" defer="defer" data-wp-strategy="defer"></script>
+	<script type="text/javascript" id="woocommerce-js-extra">
+		/* <![CDATA[ */
+		var woocommerce_params = { "ajax_url": "\/themes\/genai\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/themes\/genai\/?wc-ajax=%%endpoint%%" };
+		/* ]]> */
+	</script>
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+		data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/woocommerce/assets/js/frontend/woocommerce.min.js?ver=9.1.4"
+		id="woocommerce-js" defer="defer" data-wp-strategy="defer"></script>
+	<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+		data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/elementor/assets/lib/font-awesome/js/v4-shims.min.js?ver=3.23.4"
+		id="font-awesome-4-shim-js"></script>
+	<link rel="https://api.w.org/" href="https://ninetheme.com/themes/genai/wp-json/" />
+	<link rel="alternate" title="JSON" type="application/json"
+		href="https://ninetheme.com/themes/genai/wp-json/wp/v2/pages/1441" />
+	<link rel="EditURI" type="application/rsd+xml" title="RSD"
+		href="https://ninetheme.com/themes/genai/xmlrpc.php?rsd" />
+	<meta name="generator" content="WordPress 6.6.1" />
+	<meta name="generator" content="WooCommerce 9.1.4" />
+	<link rel="canonical" href="https://ninetheme.com/themes/genai/home-background-slideshow/" />
+	<link rel='shortlink' href='https://ninetheme.com/themes/genai/?p=1441' />
+	<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed"
+		href="https://ninetheme.com/themes/genai/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fninetheme.com%2Fthemes%2Fgenai%2Fhome-background-slideshow%2F" />
+	<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed"
+		href="https://ninetheme.com/themes/genai/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fninetheme.com%2Fthemes%2Fgenai%2Fhome-background-slideshow%2F&amp;format=xml" />
+	<meta name="generator" content="Redux 4.4.18" /> <noscript>
+		<style>
+			.woocommerce-product-gallery {
+				opacity: 1 !important;
+			}
+		</style>
+	</noscript>
+	<meta name="generator"
+		content="Elementor 3.23.4; features: e_optimized_css_loading, e_font_icon_svg, additional_custom_breakpoints, e_lazyload; settings: css_print_method-external, google_font-enabled, font_display-swap">
+	<style>
+		.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload),
+		.e-con.e-parent:nth-of-type(n+4):not(.e-lazyloaded):not(.e-no-lazyload) * {
+			background-image: none !important;
+		}
+
+		@media screen and (max-height: 1024px) {
+
+			.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload),
+			.e-con.e-parent:nth-of-type(n+3):not(.e-lazyloaded):not(.e-no-lazyload) * {
+				background-image: none !important;
+			}
+		}
+
+		@media screen and (max-height: 640px) {
+
+			.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload),
+			.e-con.e-parent:nth-of-type(n+2):not(.e-lazyloaded):not(.e-no-lazyload) * {
+				background-image: none !important;
+			}
+		}
+	</style>
+	<style id='wp-fonts-local' type='text/css'>
+		@font-face {
+			font-family: Inter;
+			font-style: normal;
+			font-weight: 300 900;
+			font-display: fallback;
+			src: url('https://ninetheme.com/themes/genai/wp-content/plugins/woocommerce/assets/fonts/Inter-VariableFont_slnt,wght.woff2') format('woff2');
+			font-stretch: normal;
+		}
+
+		@font-face {
+			font-family: Cardo;
+			font-style: normal;
+			font-weight: 400;
+			font-display: fallback;
+			src: url('https://ninetheme.com/themes/genai/wp-content/plugins/woocommerce/assets/fonts/cardo_normal_400.woff2') format('woff2');
+		}
+	</style>
+	<link rel="icon" href="{% static 'img/img03.jpeg'%}" sizes="32x32" />
+	<link rel="icon" href="{% static 'img/img03.jpeg'%}" sizes="192x192" />
+	<link rel="apple-touch-icon" href="{% static 'img/img03.jpeg'%}" />
+	<meta name="msapplication-TileImage" content="{% static 'img/img03.jpeg'%}" />
+	<style type="text/css" id="wp-custom-css">
+		.elementor-page-971 .elementor-304 .elementor-element.elementor-element-c24537b:not(.elementor-motion-effects-element-type-background),
+		.elementor-page-971 .elementor-304 .elementor-element.elementor-element-c24537b>.elementor-motion-effects-container>.elementor-motion-effects-layer,
+		.elementor-page-864 .elementor-792 .elementor-element.elementor-element-c24537b:not(.elementor-motion-effects-element-type-background),
+		.elementor-page-864 .elementor-792 .elementor-element.elementor-element-c24537b>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+			background-image: none;
+			position: relative;
+		}
+
+		.elementor-page-971 .elementor-304 .elementor-element.elementor-element-c24537b:not(.elementor-motion-effects-element-type-background):before,
+		.elementor-page-971 .elementor-304 .elementor-element.elementor-element-c24537b>.elementor-motion-effects-container>.elementor-motion-effects-layer:before {
+			background-image: var(--wpr-bg-c5da7a5a-6bf8-4c74-a813-42701fe493c5);
+			content: "";
+			display: block;
+			filter: blur(100px);
+			height: 100%;
+			inset: 0;
+			position: absolute;
+			width: 100%;
+			z-index: -1;
+		}
+
+		.elementor-page-971 .elementor-304 .elementor-element.elementor-element-54e2fc1e:not(.elementor-motion-effects-element-type-background),
+		.elementor-page-971 .elementor-304 .elementor-element.elementor-element-54e2fc1e>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+			background-image: none;
+			position: relative;
+		}
+
+		.elementor-page-971 .elementor-304 .elementor-element.elementor-element-54e2fc1e:not(.elementor-motion-effects-element-type-background):before,
+		.elementor-page-971 .elementor-304 .elementor-element.elementor-element-54e2fc1e>.elementor-motion-effects-container>.elementor-motion-effects-layer:before {
+			background-image: var(--wpr-bg-2d6679c1-f0d5-4951-8f52-93adb7bf9049);
+			content: "";
+			display: block;
+			filter: blur(100px);
+			height: 100%;
+			inset: 0;
+			position: absolute;
+			width: 100%;
+			z-index: -1;
+		}
+
+		body .elementor-widget-image a img[src$=".svg"] {
+			width: 100%;
+		}
+
+		.select2-container--default .select2-selection--single .select2-selection__rendered {
+			color: #757575;
+			line-height: 1.5;
+		}
+
+		body.page-id-1395 .bg-dark {
+			--gen-bg-opacity: 1;
+			background-color: transparent;
+		}
+
+		.woocommerce-thankyou-order-details,
+		.woocommerce-order-received .woocommerce-order-details,
+		.woocommerce-order-received .woocommerce-customer-details {
+			background-color: transparent;
+		}
+
+		.shop-notices {
+			right: 30px;
+		}
+
+		#productTabContent {
+			display: flex;
+			gap: 20px;
+			align-items: flex-start;
+			align-content: space-between;
+			justify-content: space-between;
+			max-width: 992px;
+		}
+
+		.product-tab-title {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 15px;
+			flex-direction: column;
+		}
+
+		.genai-product-tabs-content {
+			margin-top: 0;
+		}
+	</style>
+	<style id="genai-dynamic-css" title="dynamic-css" class="redux-options-output">
+		.scroll-to-top {
+			right: 30px;
+			bottom: 30px;
+		}
+	</style><noscript>
+		<style id="rocket-lazyload-nojs-css">
+			.rll-youtube-player,
+			[data-lazy-src] {
+				display: none !important;
+			}
+		</style>
+	</noscript>
+	<style id="wpr-lazyload-bg-container"></style>
+	<style id="wpr-lazyload-bg-exclusion"></style>
+	<noscript>
+		<style id="wpr-lazyload-bg-nostyle">
+			.footer.bg-color-blur:before {
+				--wpr-bg-95bc11b9-8362-4cca-876c-df3c8770174d: url('https://ninetheme.com/themes/genai/themes/genai/wp-content/themes/genai/images/shapes/stripe-colored.svg');
+			}
+
+			.nt-inner-page-wrapper .bg-striped {
+				--wpr-bg-a21164e5-d0d0-4e3e-a8f6-011bb0411e25: url('https://ninetheme.com/themes/genai/themes/genai/wp-content/themes/genai/images/stripe-light.svg');
+			}
+
+			[data-bs-theme=dark] .nt-inner-page-wrapper .bg-striped {
+				--wpr-bg-e78ada91-42e1-4dc4-a190-8506e99e1bc5: url('https://ninetheme.com/themes/genai/themes/genai/wp-content/themes/genai/images/stripe-dark.svg');
+			}
+
+			.elementor-792 .elementor-element.elementor-element-5fa46840:not(.elementor-motion-effects-element-type-background),
+			.elementor-792 .elementor-element.elementor-element-5fa46840>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+				--wpr-bg-e1b735f8-ea0f-4656-96bc-eea78894167e: url('https://ninetheme.com/themes/genai/wp-content/uploads/2023/10/stripe-dark.svg');
+			}
+
+			.elementor-page-971 .elementor-304 .elementor-element.elementor-element-c24537b:not(.elementor-motion-effects-element-type-background):before,
+			.elementor-page-971 .elementor-304 .elementor-element.elementor-element-c24537b>.elementor-motion-effects-container>.elementor-motion-effects-layer:before {
+				--wpr-bg-c5da7a5a-6bf8-4c74-a813-42701fe493c5: url('https://ninetheme.com/themes/genai/wp-content/uploads/2023/10/stripe-colored.svg');
+			}
+
+			.elementor-page-971 .elementor-304 .elementor-element.elementor-element-54e2fc1e:not(.elementor-motion-effects-element-type-background):before,
+			.elementor-page-971 .elementor-304 .elementor-element.elementor-element-54e2fc1e>.elementor-motion-effects-container>.elementor-motion-effects-layer:before {
+				--wpr-bg-2d6679c1-f0d5-4951-8f52-93adb7bf9049: url('https://ninetheme.com/themes/genai/wp-content/uploads/2023/10/stripe-colored.svg');
+			}
+		</style>
+	</noscript>
+	<script
+		type="application/javascript">const rocket_pairs = [{ "selector": ".footer.bg-color-blur", "style": ".footer.bg-color-blur:before{--wpr-bg-95bc11b9-8362-4cca-876c-df3c8770174d: url('https:\/\/ninetheme.com\/themes\/genai\/themes\/genai\/wp-content\/themes\/genai\/images\/shapes\/stripe-colored.svg');}", "hash": "95bc11b9-8362-4cca-876c-df3c8770174d", "url": "https:\/\/ninetheme.com\/themes\/genai\/themes\/genai\/wp-content\/themes\/genai\/images\/shapes\/stripe-colored.svg" }, { "selector": ".nt-inner-page-wrapper .bg-striped", "style": ".nt-inner-page-wrapper .bg-striped{--wpr-bg-a21164e5-d0d0-4e3e-a8f6-011bb0411e25: url('https:\/\/ninetheme.com\/themes\/genai\/themes\/genai\/wp-content\/themes\/genai\/images\/stripe-light.svg');}", "hash": "a21164e5-d0d0-4e3e-a8f6-011bb0411e25", "url": "https:\/\/ninetheme.com\/themes\/genai\/themes\/genai\/wp-content\/themes\/genai\/images\/stripe-light.svg" }, { "selector": "[data-bs-theme=dark] .nt-inner-page-wrapper .bg-striped", "style": "[data-bs-theme=dark] .nt-inner-page-wrapper .bg-striped{--wpr-bg-e78ada91-42e1-4dc4-a190-8506e99e1bc5: url('https:\/\/ninetheme.com\/themes\/genai\/themes\/genai\/wp-content\/themes\/genai\/images\/stripe-dark.svg');}", "hash": "e78ada91-42e1-4dc4-a190-8506e99e1bc5", "url": "https:\/\/ninetheme.com\/themes\/genai\/themes\/genai\/wp-content\/themes\/genai\/images\/stripe-dark.svg" }, { "selector": ".elementor-792 .elementor-element.elementor-element-5fa46840:not(.elementor-motion-effects-element-type-background), .elementor-792 .elementor-element.elementor-element-5fa46840 > .elementor-motion-effects-container > .elementor-motion-effects-layer", "style": ".elementor-792 .elementor-element.elementor-element-5fa46840:not(.elementor-motion-effects-element-type-background), .elementor-792 .elementor-element.elementor-element-5fa46840 > .elementor-motion-effects-container > .elementor-motion-effects-layer{--wpr-bg-e1b735f8-ea0f-4656-96bc-eea78894167e: url('https:\/\/ninetheme.com\/themes\/genai\/wp-content\/uploads\/2023\/10\/stripe-dark.svg');}", "hash": "e1b735f8-ea0f-4656-96bc-eea78894167e", "url": "https:\/\/ninetheme.com\/themes\/genai\/wp-content\/uploads\/2023\/10\/stripe-dark.svg" }, { "selector": ".elementor-page-971 .elementor-304 .elementor-element.elementor-element-c24537b:not(.elementor-motion-effects-element-type-background),.elementor-page-971 .elementor-304 .elementor-element.elementor-element-c24537b > .elementor-motion-effects-container > .elementor-motion-effects-layer", "style": ".elementor-page-971 .elementor-304 .elementor-element.elementor-element-c24537b:not(.elementor-motion-effects-element-type-background):before,.elementor-page-971 .elementor-304 .elementor-element.elementor-element-c24537b > .elementor-motion-effects-container > .elementor-motion-effects-layer:before{--wpr-bg-c5da7a5a-6bf8-4c74-a813-42701fe493c5: url('https:\/\/ninetheme.com\/themes\/genai\/wp-content\/uploads\/2023\/10\/stripe-colored.svg');}", "hash": "c5da7a5a-6bf8-4c74-a813-42701fe493c5", "url": "https:\/\/ninetheme.com\/themes\/genai\/wp-content\/uploads\/2023\/10\/stripe-colored.svg" }, { "selector": ".elementor-page-971 .elementor-304 .elementor-element.elementor-element-54e2fc1e:not(.elementor-motion-effects-element-type-background), .elementor-page-971 .elementor-304 .elementor-element.elementor-element-54e2fc1e > .elementor-motion-effects-container > .elementor-motion-effects-layer", "style": ".elementor-page-971 .elementor-304 .elementor-element.elementor-element-54e2fc1e:not(.elementor-motion-effects-element-type-background):before, .elementor-page-971 .elementor-304 .elementor-element.elementor-element-54e2fc1e > .elementor-motion-effects-container > .elementor-motion-effects-layer:before{--wpr-bg-2d6679c1-f0d5-4951-8f52-93adb7bf9049: url('https:\/\/ninetheme.com\/themes\/genai\/wp-content\/uploads\/2023\/10\/stripe-colored.svg');}", "hash": "2d6679c1-f0d5-4951-8f52-93adb7bf9049", "url": "https:\/\/ninetheme.com\/themes\/genai\/wp-content\/uploads\/2023\/10\/stripe-colored.svg" }]; const rocket_excluded_pairs = [];</script>
+</head>
+
+<!-- BODY START -->
+
+<body
+	class="page-template-default page page-id-1441 theme-genai woocommerce-no-js Genai Child Genai Child-v1.0.1 nt-page-default  nt-chrome nt-desktop elementor-default elementor-kit-668 elementor-page elementor-page-1441"
+	data-bs-theme="dark">
+	<nav class="navbar navbar-expand-lg fixed-top bg-dark" data-bs-theme="dark">
+		<div class="container">
+			<!-- Logo -->
+			<a class="navbar-brand type-img" href="/" aria-label="logo image">
+				<h4><span style="color: #e6f667;">AI-</span><span style="color: #fff;">vBrain</span></h4>
+			</a>
+
+			<!-- Navbar toggler button -->
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+				aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"><span></span><span></span><span></span></span>
+			</button>
+
+			<!-- Navbar content -->
+			<div class="collapse navbar-collapse" id="navbarContent">
+				<div
+					class="navbar-content-inner ms-lg-auto d-flex flex-column flex-lg-row align-lg-center gap-4 gap-lg-10 p-2 p-lg-0">
+					<ul class="navbar-nav gap-lg-2 gap-xl-5">
+						<!-- <li id="menu-item-12" class="nav-item"><a class="nav-link  active"
+								href="/" style="font-weight: bolder;">Home</a>
+							
+						</li> -->
+
+						<li id="menu-item-139" class="nav-item"><a class=" btn btn-outline-primary-dark" href="login">
+								Login </a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<div class="page-overlay"></div>
+	<div class="wrapper d-flex flex-column justify-between">
+		<main class="flex-grow-1"
+			style="background-image: url('{% static 'img/img00.jpg' %}'); background-repeat: no-repeat; background-position: center; background-size:fit;">
+			<div data-elementor-type="wp-page" data-elementor-id="1441" class="elementor elementor-1441">
+				<div class="elementor-element elementor-element-2679a951 e-flex e-con-boxed e-con e-parent"
+					data-id="2679a951" data-element_type="container" data-settings="{&quot;background_background&quot;:&quot;slideshow&quot;,
+						&quot;background_slideshow_gallery&quot;:[
+							{&quot;id&quot;:1450,
+							 &quot;url&quot;:&quot;static/img/img00.jpg&quot;
+							},
+							{&quot;id&quot;:1451,
+							 &quot;url&quot;:&quot;static/img/img00.jpg&quot;
+							},
+							{&quot;id&quot;:1452,
+							 &quot;url&quot;:&quot;static/img/img00.jpg&quot;
+							}],
+						&quot;background_slideshow_slide_transition&quot;:&quot;slide_up&quot;,
+						&quot;background_slideshow_ken_burns&quot;:&quot;yes&quot;,
+						&quot;background_slideshow_loop&quot;:&quot;yes&quot;,
+						&quot;background_slideshow_slide_duration&quot;:5000,
+						&quot;background_slideshow_transition_duration&quot;:500,
+						&quot;background_slideshow_ken_burns_zoom_direction&quot;:&quot;in&quot;}">
+					<div class="e-con-inner">
+						<div class="elementor-element elementor-element-1bfcc813 e-con-full e-flex e-con e-child"
+							data-id="1bfcc813" data-element_type="container">
+							<div class="elementor-element elementor-element-2e7f1f6b e-con-full e-flex e-con e-child"
+								data-id="2e7f1f6b" data-element_type="container">
+								<div class="elementor-element elementor-element-5b95d3d4 e-con-full e-flex e-con e-child"
+									data-id="5b95d3d4" data-element_type="container"
+									data-settings="{&quot;background_background&quot;:&quot;classic&quot;}">
+									<div class="elementor-element elementor-element-768bf4f1 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
+										data-id="768bf4f1" data-element_type="widget"
+										data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:200}"
+										data-widget_type="heading.default">
+										<div class="elementor-widget-container">
+											<style>
+												.elementor-heading-title {
+													padding: 0;
+													margin: 0;
+													line-height: 1
+												}
+
+												.elementor-widget-heading .elementor-heading-title[class*=elementor-size-]>a {
+													color: inherit;
+													font-size: inherit;
+													line-height: inherit
+												}
+
+												.elementor-widget-heading .elementor-heading-title.elementor-size-small {
+													font-size: 15px
+												}
+
+												.elementor-widget-heading .elementor-heading-title.elementor-size-medium {
+													font-size: 19px
+												}
+
+												.elementor-widget-heading .elementor-heading-title.elementor-size-large {
+													font-size: 29px
+												}
+
+												.elementor-widget-heading .elementor-heading-title.elementor-size-xl {
+													font-size: 39px
+												}
+
+												.elementor-widget-heading .elementor-heading-title.elementor-size-xxl {
+													font-size: 59px
+												}
+											</style>
+											<p class="elementor-heading-title elementor-size-default">Best AI
+												vBrain Tool
+
+											</p>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-290c876a animated-fast elementor-invisible elementor-widget elementor-widget-heading"
+										data-id="290c876a" data-element_type="widget"
+										data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:300}"
+										data-widget_type="heading.default">
+										<div class="elementor-widget-container">
+											<h1 class="elementor-heading-title elementor-size-default">A 10X Faster Way
+												To make Prediction
+											</h1>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-40ff63c3 animated-fast elementor-invisible elementor-widget elementor-widget-heading"
+										data-id="40ff63c3" data-element_type="widget"
+										data-settings="{&quot;_animation&quot;:&quot;fadeInUp&quot;,&quot;_animation_delay&quot;:400}"
+										data-widget_type="heading.default">
+										<div class="elementor-widget-container">
+											<span class="elementor-heading-title elementor-size-default">AI-vBrain tool
+												enable uploading, processing, and predicting features in MRI images,
+												enhancing clarity and analyzing structures like vasculature using
+												multiple models.</span>
+										</div>
+									</div>
+									<div class="elementor-element elementor-element-36bae8df animated-fast elementor-invisible elementor-widget elementor-widget-genai-button"
+										data-id="36bae8df" data-element_type="widget"
+										data-settings="{&quot;_animation&quot;:&quot;bounceIn&quot;,&quot;_animation_delay&quot;:500}"
+										data-widget_type="genai-button.default">
+										<div class="elementor-widget-container">
+											<a data-id="btn-36bae8df"
+												class="btn btn-primary-dark genai-btn-primary genai-solid genai-square genai-btn-medium btn-icon-right has-icon"
+												href="login" title="Login"><span class="genai-button-inner"><span
+														class="btn-text">Login</span><span
+														class="genai-button-icon"><svg aria-hidden="true"
+															class="e-font-icon-svg e-fas-arrow-right"
+															viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+															<path
+																d="M190.5 66.9l22.2-22.2c9.4-9.4 24.6-9.4 33.9 0L441 239c9.4 9.4 9.4 24.6 0 33.9L246.6 467.3c-9.4 9.4-24.6 9.4-33.9 0l-22.2-22.2c-9.5-9.5-9.3-25 .4-34.3L311.4 296H24c-13.3 0-24-10.7-24-24v-32c0-13.3 10.7-24 24-24h287.4L190.9 101.2c-9.8-9.3-10-24.8-.4-34.3z">
+															</path>
+														</svg></span></span></a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</main>
+
+
+		<svg class="genai-hidden">
+			<symbol id="shopBag">
+				<path
+					d="m26 8.9a1 1 0 0 0 -1-.9h-3a6 6 0 0 0 -12 0h-3a1 1 0 0 0 -1 .9l-1.78 17.8a3 3 0 0 0 .78 2.3 3 3 0 0 0 2.22 1h17.57a3 3 0 0 0 2.21-1 3 3 0 0 0 .77-2.31zm-10-4.9a4 4 0 0 1 4 4h-8a4 4 0 0 1 4-4zm9.53 23.67a1 1 0 0 1 -.74.33h-17.58a1 1 0 0 1 -.74-.33 1 1 0 0 1 -.26-.77l1.7-16.9h2.09v3a1 1 0 0 0 2 0v-3h8v3a1 1 0 0 0 2 0v-3h2.09l1.7 16.9a1 1 0 0 1 -.26.77z" />
+			</symbol>
+			<symbol id="shopArrowRight">
+				<path
+					d="m64 0c-35.289 0-64 28.711-64 64s28.711 64 64 64 64-28.711 64-64-28.711-64-64-64zm0 120c-30.879 0-56-25.121-56-56s25.121-56 56-56 56 25.121 56 56-25.121 56-56 56zm26.828-58.828c1.563 1.563 1.563 4.094 0 5.656l-20 20c-.781.781-1.805 1.172-2.828 1.172s-2.047-.391-2.828-1.172c-1.563-1.563-1.563-4.094 0-5.656l13.172-13.172h-38.344c-2.209 0-4-1.789-4-4s1.791-4 4-4h38.344l-13.172-13.172c-1.563-1.563-1.563-4.094 0-5.656s4.094-1.563 5.656 0z" />
+			</symbol>
+			<symbol id="shopEye">
+				<path
+					d="m29.91 15.59c-.17-.39-4.37-9.59-13.91-9.59s-13.74 9.2-13.91 9.59a1 1 0 0 0 0 .82c.17.39 4.37 9.59 13.91 9.59s13.74-9.2 13.91-9.59a1 1 0 0 0 0-.82zm-13.91 8.41c-7.17 0-11-6.32-11.88-8 .88-1.68 4.71-8 11.88-8s11 6.32 11.88 8c-.88 1.68-4.71 8-11.88 8z" />
+				<path d="m16 10a6 6 0 1 0 6 6 6 6 0 0 0 -6-6zm0 10a4 4 0 1 1 4-4 4 4 0 0 1 -4 4z" />
+			</symbol>
+			<symbol id="shopCompare">
+				<path
+					d="m26 9a1 1 0 0 0 0-2h-4a1 1 0 0 0 -1 1v4a1 1 0 0 0 2 0v-1.66a9 9 0 0 1 -7 14.66c-.3 0-.6 0-.9 0a1 1 0 1 0 -.2 2c.36 0 .73.05 1.1.05a11 11 0 0 0 8.48-18.05z" />
+				<path
+					d="m10 19a1 1 0 0 0 -1 1v1.66a9 9 0 0 1 8.8-14.48 1 1 0 0 0 .4-2 10.8 10.8 0 0 0 -2.2-.18 11 11 0 0 0 -8.48 18h-1.52a1 1 0 0 0 0 2h4a1 1 0 0 0 1-1v-4a1 1 0 0 0 -1-1z" />
+			</symbol>
+			<symbol id="shopLove">
+				<path
+					d="m29.55 6.509c-1.73-2.302-3.759-3.483-6.031-3.509h-.076c-3.29 0-6.124 2.469-7.443 3.84-1.32-1.371-4.153-3.84-7.444-3.84h-.075c-2.273.026-4.3 1.207-6.059 3.549a8.265 8.265 0 0 0 1.057 10.522l11.821 11.641a1 1 0 0 0 1.4 0l11.82-11.641a8.278 8.278 0 0 0 1.03-10.562zm-2.432 9.137-11.118 10.954-11.118-10.954a6.254 6.254 0 0 1 -.832-7.936c1.335-1.777 2.831-2.689 4.45-2.71h.058c3.48 0 6.627 3.924 6.658 3.964a1.037 1.037 0 0 0 1.57 0c.032-.04 3.2-4.052 6.716-3.964a5.723 5.723 0 0 1 4.421 2.67 6.265 6.265 0 0 1 -.805 7.976z" />
+			</symbol>
+			<symbol id="shopTrash">
+				<path
+					d="m232.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0" />
+				<path
+					d="m114.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0" />
+				<path
+					d="m28.398438 127.121094v246.378906c0 14.5625 5.339843 28.238281 14.667968 38.050781 9.285156 9.839844 22.207032 15.425781 35.730469 15.449219h189.203125c13.527344-.023438 26.449219-5.609375 35.730469-15.449219 9.328125-9.8125 14.667969-23.488281 14.667969-38.050781v-246.378906c18.542968-4.921875 30.558593-22.835938 28.078124-41.863282-2.484374-19.023437-18.691406-33.253906-37.878906-33.257812h-51.199218v-12.5c.058593-10.511719-4.097657-20.605469-11.539063-28.03125-7.441406-7.421875-17.550781-11.5546875-28.0625-11.46875h-88.796875c-10.511719-.0859375-20.621094 4.046875-28.0625 11.46875-7.441406 7.425781-11.597656 17.519531-11.539062 28.03125v12.5h-51.199219c-19.1875.003906-35.394531 14.234375-37.878907 33.257812-2.480468 19.027344 9.535157 36.941407 28.078126 41.863282zm239.601562 279.878906h-189.203125c-17.097656 0-30.398437-14.6875-30.398437-33.5v-245.5h250v245.5c0 18.8125-13.300782 33.5-30.398438 33.5zm-158.601562-367.5c-.066407-5.207031 1.980468-10.21875 5.675781-13.894531 3.691406-3.675781 8.714843-5.695313 13.925781-5.605469h88.796875c5.210937-.089844 10.234375 1.929688 13.925781 5.605469 3.695313 3.671875 5.742188 8.6875 5.675782 13.894531v12.5h-128zm-71.199219 32.5h270.398437c9.941406 0 18 8.058594 18 18s-8.058594 18-18 18h-270.398437c-9.941407 0-18-8.058594-18-18s8.058593-18 18-18zm0 0" />
+				<path
+					d="m173.398438 154.703125c-5.523438 0-10 4.476563-10 10v189c0 5.519531 4.476562 10 10 10 5.523437 0 10-4.480469 10-10v-189c0-5.523437-4.476563-10-10-10zm0 0" />
+			</symbol>
+			<symbol id="shopExpand">
+				<path d="M128,32V0H16C7.163,0,0,7.163,0,16v112h32V54.56L180.64,203.2l22.56-22.56L54.56,32H128z" />
+				<path d="M496,0H384v32h73.44L308.8,180.64l22.56,22.56L480,54.56V128h32V16C512,7.163,504.837,0,496,0z" />
+				<path
+					d="M480,457.44L331.36,308.8l-22.56,22.56L457.44,480H384v32h112c8.837,0,16-7.163,16-16V384h-32V457.44z" />
+				<path
+					d="M180.64,308.64L32,457.44V384H0v112c0,8.837,7.163,16,16,16h112v-32H54.56L203.2,331.36L180.64,308.64z" />
+			</symbol>
+			<symbol id="shopUser">
+				<path
+					d="m256 253.7c-62 0-112.4-50.4-112.4-112.4s50.4-112.4 112.4-112.4 112.4 50.4 112.4 112.4-50.4 112.4-112.4 112.4zm0-195.8c-46 0-83.4 37.4-83.4 83.4s37.4 83.4 83.4 83.4 83.4-37.4 83.4-83.4-37.4-83.4-83.4-83.4z" />
+				<path
+					d="m452.1 483.2h-392.2c-8 0-14.5-6.5-14.5-14.5 0-106.9 94.5-193.9 210.6-193.9s210.6 87 210.6 193.9c0 8-6.5 14.5-14.5 14.5zm-377-29.1h361.7c-8.1-84.1-86.1-150.3-180.8-150.3s-172.7 66.2-180.9 150.3z" />
+			</symbol>
+			<symbol id="shopSearch">
+				<path
+					d="m40.2850342 37.4604492-6.4862061-6.4862061c1.9657593-2.5733643 3.0438843-5.6947021 3.0443115-8.9884033 0-3.9692383-1.5458984-7.7011719-4.3530273-10.5078125-2.8066406-2.8066406-6.5380859-4.3525391-10.5078125-4.3525391-3.9692383 0-7.7011719 1.5458984-10.5078125 4.3525391-5.7939453 5.7944336-5.7939453 15.222168 0 21.015625 2.8066406 2.8071289 6.5385742 4.3530273 10.5078125 4.3530273 3.2937012-.0004272 6.4150391-1.0785522 8.9884033-3.0443115l6.4862061 6.4862061c.3901367.390625.9023438.5859375 1.4140625.5859375s1.0239258-.1953125 1.4140625-.5859375c.78125-.7807617.78125-2.0473633 0-2.828125zm-25.9824219-7.7949219c-4.234375-4.234375-4.2338867-11.1245117 0-15.359375 2.0512695-2.0507813 4.7788086-3.1806641 7.6796875-3.1806641 2.9013672 0 5.628418 1.1298828 7.6796875 3.1806641 2.0512695 2.0512695 3.1811523 4.7788086 3.1811523 7.6796875 0 2.9013672-1.1298828 5.628418-3.1811523 7.6796875s-4.7783203 3.1811523-7.6796875 3.1811523c-2.9008789.0000001-5.628418-1.1298827-7.6796875-3.1811523z" />
+			</symbol>
+			<symbol id="menuBars">
+				<line x1="0" y1="12" x2="21" y2="12"></line>
+				<line x1="0" y1="6" x2="21" y2="6"></line>
+				<line x1="0" y1="18" x2="21" y2="18"></line>
+			</symbol>
+			<symbol id="arrowRight">
+				<g>
+					<path clip-rule="evenodd"
+						d="m463.966 235.526-189.753-189.753c-4.16-4.16-10.923-4.16-15.083 0s-4.16 10.923 0 15.083l174.315 174.314h-380.117c-5.888 0-10.667 4.779-10.667 10.667 0 5.909 4.779 10.667 10.667 10.667h379.072l-173.269 173.269c-4.16 4.16-4.16 10.923 0 15.083 4.181 4.181 10.901 4.16 15.083 0l189.76-189.739c.571-.543 4.757-4.66 4.246-10.897-.404-4.919-3.465-7.956-4.254-8.694z"
+						fill-rule="evenodd"></path>
+				</g>
+			</symbol>
+			<symbol id="arrowRight2">
+				<path d="M4 12.6667L12.6667 4M12.6667 4V12.32M12.6667 4H4.34667" stroke="currentColor"
+					stroke-width="1.21" stroke-linecap="round" stroke-linejoin="round" />
+			</symbol>
+			<symbol id="arrowLeft">
+				<polygon fill="#231F20"
+					points="19.626,31.705 7.712,20 45,20 45,15 7.712,15 19.626,3.006 16.798,0.273 -0.38,17.499   16.798,34.605 " />
+			</symbol>
+			<symbol id="reviewStar">
+				<path
+					d="m4.824 4.225-4.253.617-.075.015A.667.667 0 0 0 .202 5.98l3.082 3-.727 4.236-.009.073a.667.667 0 0 0 .976.63l3.804-2 3.796 2 .066.03a.666.666 0 0 0 .902-.733l-.728-4.237 3.083-3 .052-.056a.667.667 0 0 0-.422-1.08l-4.253-.618L7.922.372a.667.667 0 0 0-1.196 0L4.824 4.225Z" />
+			</symbol>
+			<symbol id="formSubmit">
+				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+					d="m4.031 8.917 15.477-4.334a.5.5 0 0 1 .616.617l-4.333 15.476a.5.5 0 0 1-.94.067l-3.248-7.382a.5.5 0 0 0-.256-.257L3.965 9.856a.5.5 0 0 1 .066-.94v0Z">
+				</path>
+			</symbol>
+			<symbol id="formUser">
+				<path stroke="none" d="M0 0h24v24H0z"></path>
+				<circle cx="12" cy="7" r="4"></circle>
+				<path d="M6 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2"></path>
+			</symbol>
+			<symbol id="formEmail">
+				<g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.2">
+					<path
+						d="M2.25 5.25a1.5 1.5 0 0 1 1.5-1.5h10.5a1.5 1.5 0 0 1 1.5 1.5v7.5a1.5 1.5 0 0 1-1.5 1.5H3.75a1.5 1.5 0 0 1-1.5-1.5v-7.5Z">
+					</path>
+					<path d="M2.25 5.25 9 9.75l6.75-4.5"></path>
+				</g>
+			</symbol>
+			<symbol id="formPhone">
+				<path stroke="none" d="M0 0h24v24H0z"></path>
+				<path
+					d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2m10 3a2 2 0 0 1 2 2m-2-6a6 6 0 0 1 6 6">
+				</path>
+			</symbol>
+			<symbol id="searchArrow">
+				<path stroke="none" d="M0 0h24v24H0z"></path>
+				<path d="M5 12h14m-4 4 4-4m-4-4 4 4"></path>
+			</symbol>
+			<symbol id="checked">
+				<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+					d="m3.75 9 3.75 3.75 7.5-7.5"></path>
+			</symbol>
+			<symbol id="shopCoupon">
+				<path
+					d="m185.08 114.947c1.405 7.504 8.849 13.422 17.63 11.78 8.526-1.78 13.375-9.955 11.78-17.64-1.873-8.936-10.699-13.914-19.061-11.42-7.469 2.229-11.887 9.942-10.349 17.28z">
+				</path>
+				<path
+					d="m508.225 324.453c-81.619-237.586-76.004-221.308-76.353-222.117-8.496-19.663-24.988-34.949-45.249-41.94-2.901-1.001-167.187-39.431-171.935-41.075-14.561-5.043-34.791-2.216-48.993 10.846l-140.789 129.549c-15.828 14.558-24.906 35.282-24.906 56.86v229.41c0 27.035 21.877 49.03 48.768 49.03h301.205c26.891 0 48.768-21.995 48.768-49.03v-22.174l83.955-35.93c24.409-10.563 35.764-38.912 25.529-63.429zm-158.252 140.563h-301.205c-10.349 0-18.768-8.537-18.768-19.03v-229.41c0-13.209 5.546-25.887 15.217-34.782 120.62-110.988 46.064-41.76 141.269-129.559 4.965-4.576 11.82-6.414 18.619-4.364 6.077 1.815-4.646-6.919 148.421 133.925 9.669 8.894 15.215 21.571 15.215 34.78v229.41c-.001 10.493-8.42 19.03-18.768 19.03zm120.864-104.691-72.097 30.855v-174.604c0-21.578-9.078-42.302-24.904-56.858l-104.848-96.477 108.503 25.746c11.844 4.287 21.498 13.261 26.626 24.757 81.464 237.133 75.969 221.217 76.326 222.038 4.096 9.468-.238 20.489-9.606 24.543z">
+				</path>
+				<path
+					d="m241.959 202.297c-7.637-3.206-16.43.39-19.636 8.028l-73.023 174.04c-4.166 9.929 3.193 20.808 13.825 20.808 5.861 0 11.429-3.457 13.839-9.2l73.023-174.04c3.205-7.64-.389-16.431-8.028-19.636z">
+				</path>
+				<path
+					d="m171.659 245.52c0-28.95-21.203-52.503-47.266-52.503s-47.265 23.553-47.265 52.503 21.203 52.503 47.266 52.503 47.265-23.553 47.265-52.503zm-47.265 22.503c-9.359 0-17.266-10.305-17.266-22.503s7.906-22.503 17.266-22.503 17.266 10.305 17.266 22.503c-.001 12.198-7.907 22.503-17.266 22.503z">
+				</path>
+				<path
+					d="m275.751 312.011c-26.063 0-47.266 23.553-47.266 52.503s21.203 52.503 47.266 52.503 47.266-23.553 47.266-52.503-21.204-52.503-47.266-52.503zm0 75.006c-9.359 0-17.266-10.305-17.266-22.503s7.906-22.503 17.266-22.503 17.266 10.305 17.266 22.503-7.907 22.503-17.266 22.503z">
+				</path>
+			</symbol>
+		</svg>
+		<div class="shop-notices"></div>
+
+		<link data-minify="1" rel='stylesheet' id='wc-blocks-style-css'
+			href='https://ninetheme.com/themes/genai/wp-content/cache/min/1/themes/genai/wp-content/plugins/woocommerce/assets/client/blocks/wc-blocks.css?ver=1723988891'
+			type='text/css' media='all' />
+		<link rel='stylesheet' id='e-animations-css'
+			href='https://ninetheme.com/themes/genai/wp-content/plugins/elementor/assets/lib/animations/animations.min.css?ver=3.23.4'
+			type='text/css' media='all' />
+		<link rel='stylesheet' id='elementor-post-792-css'
+			href='https://ninetheme.com/themes/genai/wp-content/cache/background-css/ninetheme.com/themes/genai/wp-content/uploads/elementor/css/post-792.css?ver=1723988891&amp;wpr_t=1724010299'
+			type='text/css' media='all' />
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/woocommerce/assets/js/sourcebuster/sourcebuster.min.js?ver=9.1.4"
+			id="sourcebuster-js-js"></script>
+		<script type="text/javascript" id="wc-order-attribution-js-extra">
+			/* <![CDATA[ */
+			var wc_order_attribution = { "params": { "lifetime": 1.0000000000000000818030539140313095458623138256371021270751953125e-5, "session": 30, "base64": false, "ajaxurl": "https:\/\/ninetheme.com\/themes\/genai\/wp-admin\/admin-ajax.php", "prefix": "wc_order_attribution_", "allowTracking": true }, "fields": { "source_type": "current.typ", "referrer": "current_add.rf", "utm_campaign": "current.cmp", "utm_source": "current.src", "utm_medium": "current.mdm", "utm_content": "current.cnt", "utm_id": "current.id", "utm_term": "current.trm", "utm_source_platform": "current.plt", "utm_creative_format": "current.fmt", "utm_marketing_tactic": "current.tct", "session_entry": "current_add.ep", "session_start_time": "current_add.fd", "session_pages": "session.pgs", "session_count": "udata.vst", "user_agent": "udata.uag" } };
+			/* ]]> */
+		</script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/woocommerce/assets/js/frontend/order-attribution.min.js?ver=9.1.4"
+			id="wc-order-attribution-js"></script>
+
+
+		<script type="text/javascript" id="rocket_lazyload_css-js-extra">
+			/* <![CDATA[ */
+			var rocket_lazyload_css_data = { "threshold": "300" };
+			/* ]]> */
+		</script>
+		<script type="text/javascript" id="rocket_lazyload_css-js-after">
+			/* <![CDATA[ */
+			!function o(n, c, a) { function u(t, e) { if (!c[t]) { if (!n[t]) { var r = "function" == typeof require && require; if (!e && r) return r(t, !0); if (s) return s(t, !0); throw (e = new Error("Cannot find module '" + t + "'")).code = "MODULE_NOT_FOUND", e } r = c[t] = { exports: {} }, n[t][0].call(r.exports, function (e) { return u(n[t][1][e] || e) }, r, r.exports, o, n, c, a) } return c[t].exports } for (var s = "function" == typeof require && require, e = 0; e < a.length; e++)u(a[e]); return u }({ 1: [function (e, t, r) { "use strict"; { const c = "undefined" == typeof rocket_pairs ? [] : rocket_pairs, a = (("undefined" == typeof rocket_excluded_pairs ? [] : rocket_excluded_pairs).map(t => { var e = t.selector; document.querySelectorAll(e).forEach(e => { e.setAttribute("data-rocket-lazy-bg-" + t.hash, "excluded") }) }), document.querySelector("#wpr-lazyload-bg-container")); var o = rocket_lazyload_css_data.threshold || 300; const u = new IntersectionObserver(e => { e.forEach(t => { t.isIntersecting && c.filter(e => t.target.matches(e.selector)).map(t => { var e; t && ((e = document.createElement("style")).textContent = t.style, a.insertAdjacentElement("afterend", e), t.elements.forEach(e => { u.unobserve(e), e.setAttribute("data-rocket-lazy-bg-" + t.hash, "loaded") })) }) }) }, { rootMargin: o + "px" }); function n() { 0 < (0 < arguments.length && void 0 !== arguments[0] ? arguments[0] : []).length && c.forEach(t => { try { document.querySelectorAll(t.selector).forEach(e => { "loaded" !== e.getAttribute("data-rocket-lazy-bg-" + t.hash) && "excluded" !== e.getAttribute("data-rocket-lazy-bg-" + t.hash) && (u.observe(e), (t.elements ||= []).push(e)) }) } catch (e) { console.error(e) } }) } n(), function () { const r = window.MutationObserver; return function (e, t) { if (e && 1 === e.nodeType) return (t = new r(t)).observe(e, { attributes: !0, childList: !0, subtree: !0 }), t } }()(document.querySelector("body"), n) } }, {}] }, {}, [1]);
+			//# sourceMappingURL=lazyload-css.min.js.map
+			/* ]]> */
+		</script>
+		<script data-minify="1" type="text/javascript"
+			src="https://ninetheme.com/themes/genai/wp-content/cache/min/1/themes/genai/wp-content/themes/genai/js/genai-plugins.js?ver=1708627046"
+			id="genai-plugins-js"></script>
+		<script type="text/javascript" id="genai-scripts-js-extra">
+			/* <![CDATA[ */
+			var genai_vars = { "ajax_url": "https:\/\/ninetheme.com\/themes\/genai\/wp-admin\/admin-ajax.php", "wc_ajax_url": "\/themes\/genai\/?wc-ajax=%%endpoint%%", "security": "792ad29bc7", "is_mobile": "no", "shop_ajax": "yes", "ajax_addtocart": "yes", "product_ajax": "yes", "notices": "1", "duration": "3500", "addto": "Add to cart", "added": "Added to cart", "view": "View cart", "protected": "This content is password protected.", "check_product": "Check Product", "cart_url": "https:\/\/ninetheme.com\/themes\/genai\/cart\/", "is_cart": "no", "is_checkout": "no", "is_product": "no", "backtotop": "yes" };
+			/* ]]> */
+		</script>
+		<script data-minify="1" type="text/javascript"
+			src="https://ninetheme.com/themes/genai/wp-content/cache/min/1/themes/genai/wp-content/themes/genai/js/genai-scripts.js?ver=1708627046"
+			id="genai-scripts-js"></script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18"
+			id="wp-hooks-js"></script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6"
+			id="wp-i18n-js"></script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="wp-i18n-js-after">
+/* <![CDATA[ */
+wp.i18n.setLocaleData( { 'text direction\u0004ltr': [ 'ltr' ] } );
+/* ]]> */
+</script>
+		<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-content/cache/min/1/themes/genai/wp-content/plugins/contact-form-7/includes/swv/js/index.js?ver=1708627046"
+			id="swv-js"></script>
+		<script type="text/javascript" id="contact-form-7-js-extra">
+			/* <![CDATA[ */
+			var wpcf7 = { "api": { "root": "https:\/\/ninetheme.com\/themes\/genai\/wp-json\/", "namespace": "contact-form-7\/v1" }, "cached": "1" };
+			/* ]]> */
+		</script>
+		<script type="rocketlazyloadscript" data-minify="1" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-content/cache/min/1/themes/genai/wp-content/plugins/contact-form-7/includes/js/index.js?ver=1708627046"
+			id="contact-form-7-js"></script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/elementor/assets/js/webpack.runtime.min.js?ver=3.23.4"
+			id="elementor-webpack-runtime-js"></script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/elementor/assets/js/frontend-modules.min.js?ver=3.23.4"
+			id="elementor-frontend-modules-js"></script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/elementor/assets/lib/waypoints/waypoints.min.js?ver=4.0.2"
+			id="elementor-waypoints-js"></script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-includes/js/jquery/ui/core.min.js?ver=1.13.3"
+			id="jquery-ui-core-js"></script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript" id="elementor-frontend-js-before">
+/* <![CDATA[ */
+var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false,"isScriptDebug":false},"i18n":{"shareOnFacebook":"Share on Facebook","shareOnTwitter":"Share on Twitter","pinIt":"Pin it","download":"Download","downloadImage":"Download image","fullscreen":"Fullscreen","zoom":"Zoom","share":"Share","playVideo":"Play Video","previous":"Previous","next":"Next","close":"Close","a11yCarouselWrapperAriaLabel":"Carousel | Horizontal scrolling: Arrow Left & Right","a11yCarouselPrevSlideMessage":"Previous slide","a11yCarouselNextSlideMessage":"Next slide","a11yCarouselFirstSlideMessage":"This is the first slide","a11yCarouselLastSlideMessage":"This is the last slide","a11yCarouselPaginationBulletMessage":"Go to slide"},"is_rtl":false,"breakpoints":{"xs":0,"sm":480,"md":768,"lg":1025,"xl":1440,"xxl":1600},"responsive":{"breakpoints":{"mobile":{"label":"Mobile Portrait","value":767,"default_value":767,"direction":"max","is_enabled":true},"mobile_extra":{"label":"Mobile Landscape","value":880,"default_value":880,"direction":"max","is_enabled":false},"tablet":{"label":"Tablet Portrait","value":1024,"default_value":1024,"direction":"max","is_enabled":true},"tablet_extra":{"label":"Tablet Landscape","value":1200,"default_value":1200,"direction":"max","is_enabled":false},"laptop":{"label":"Laptop","value":1366,"default_value":1366,"direction":"max","is_enabled":false},"widescreen":{"label":"Widescreen","value":2400,"default_value":2400,"direction":"min","is_enabled":false}}},"version":"3.23.4","is_static":false,"experimentalFeatures":{"e_optimized_css_loading":true,"e_font_icon_svg":true,"additional_custom_breakpoints":true,"container":true,"container_grid":true,"e_swiper_latest":true,"e_nested_atomic_repeaters":true,"e_onboarding":true,"home_screen":true,"ai-layout":true,"e_lazyload":true},"urls":{"assets":"https:\/\/ninetheme.com\/themes\/genai\/wp-content\/plugins\/elementor\/assets\/","ajaxurl":"https:\/\/ninetheme.com\/themes\/genai\/wp-admin\/admin-ajax.php"},"nonces":{"floatingButtonsClickTracking":"f9e011e9d0"},"swiperClass":"swiper","settings":{"page":[],"editorPreferences":[]},"kit":{"active_breakpoints":["viewport_mobile","viewport_tablet"],"global_image_lightbox":"yes","lightbox_enable_counter":"yes","lightbox_enable_fullscreen":"yes","lightbox_enable_zoom":"yes","lightbox_enable_share":"yes","lightbox_title_src":"title","lightbox_description_src":"description"},"post":{"id":1441,"title":"Home%20Background%20Slideshow%20%E2%80%93%20AI%20Content%20WP%20Theme","excerpt":"","featuredImage":false}};
+/* ]]> */
+</script>
+		<script type="rocketlazyloadscript" data-rocket-type="text/javascript"
+			data-rocket-src="https://ninetheme.com/themes/genai/wp-content/plugins/elementor/assets/js/frontend.min.js?ver=3.23.4"
+			id="elementor-frontend-js"></script>
+		<script>window.lazyLoadOptions = [{ elements_selector: "img[data-lazy-src],.rocket-lazyload", data_src: "lazy-src", data_srcset: "lazy-srcset", data_sizes: "lazy-sizes", class_loading: "lazyloading", class_loaded: "lazyloaded", threshold: 300, callback_loaded: function (element) { if (element.tagName === "IFRAME" && element.dataset.rocketLazyload == "fitvidscompatible") { if (element.classList.contains("lazyloaded")) { if (typeof window.jQuery != "undefined") { if (jQuery.fn.fitVids) { jQuery(element).parent().fitVids() } } } } } }, { elements_selector: ".rocket-lazyload", data_src: "lazy-src", data_srcset: "lazy-srcset", data_sizes: "lazy-sizes", class_loading: "lazyloading", class_loaded: "lazyloaded", threshold: 300, }]; window.addEventListener('LazyLoad::Initialized', function (e) {
+				var lazyLoadInstance = e.detail.instance; if (window.MutationObserver) {
+					var observer = new MutationObserver(function (mutations) {
+						var image_count = 0; var iframe_count = 0; var rocketlazy_count = 0; mutations.forEach(function (mutation) {
+							for (var i = 0; i < mutation.addedNodes.length; i++) {
+								if (typeof mutation.addedNodes[i].getElementsByTagName !== 'function') { continue }
+								if (typeof mutation.addedNodes[i].getElementsByClassName !== 'function') { continue }
+								images = mutation.addedNodes[i].getElementsByTagName('img'); is_image = mutation.addedNodes[i].tagName == "IMG"; iframes = mutation.addedNodes[i].getElementsByTagName('iframe'); is_iframe = mutation.addedNodes[i].tagName == "IFRAME"; rocket_lazy = mutation.addedNodes[i].getElementsByClassName('rocket-lazyload'); image_count += images.length; iframe_count += iframes.length; rocketlazy_count += rocket_lazy.length; if (is_image) { image_count += 1 }
+								if (is_iframe) { iframe_count += 1 }
+							}
+						}); if (image_count > 0 || iframe_count > 0 || rocketlazy_count > 0) { lazyLoadInstance.update() }
+					}); var b = document.getElementsByTagName("body")[0]; var config = { childList: !0, subtree: !0 }; observer.observe(b, config)
+				}
+			}, !1)</script>
+		<script data-no-minify="1" async
+			src="https://ninetheme.com/themes/genai/wp-content/plugins/wp-rocket/assets/js/lazyload/17.8.3/lazyload.min.js"></script>
+	</div>
+	<script>class RocketElementorAnimation { constructor() { this.deviceMode = document.createElement("span"), this.deviceMode.id = "elementor-device-mode-wpr", this.deviceMode.setAttribute("class", "elementor-screen-only"), document.body.appendChild(this.deviceMode) } _detectAnimations() { let t = getComputedStyle(this.deviceMode, ":after").content.replace(/"/g, ""); this.animationSettingKeys = this._listAnimationSettingsKeys(t), document.querySelectorAll(".elementor-invisible[data-settings]").forEach(t => { const e = t.getBoundingClientRect(); if (e.bottom >= 0 && e.top <= window.innerHeight) try { this._animateElement(t) } catch (t) { } }) } _animateElement(t) { const e = JSON.parse(t.dataset.settings), i = e._animation_delay || e.animation_delay || 0, n = e[this.animationSettingKeys.find(t => e[t])]; if ("none" === n) return void t.classList.remove("elementor-invisible"); t.classList.remove(n), this.currentAnimation && t.classList.remove(this.currentAnimation), this.currentAnimation = n; let s = setTimeout(() => { t.classList.remove("elementor-invisible"), t.classList.add("animated", n), this._removeAnimationSettings(t, e) }, i); window.addEventListener("rocket-startLoading", function () { clearTimeout(s) }) } _listAnimationSettingsKeys(t = "mobile") { const e = [""]; switch (t) { case "mobile": e.unshift("_mobile"); case "tablet": e.unshift("_tablet"); case "desktop": e.unshift("_desktop") }const i = []; return ["animation", "_animation"].forEach(t => { e.forEach(e => { i.push(t + e) }) }), i } _removeAnimationSettings(t, e) { this._listAnimationSettingsKeys().forEach(t => delete e[t]), t.dataset.settings = JSON.stringify(e) } static run() { const t = new RocketElementorAnimation; requestAnimationFrame(t._detectAnimations.bind(t)) } } document.addEventListener("DOMContentLoaded", RocketElementorAnimation.run);</script>
+</body>
+
+
+</html>

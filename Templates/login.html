@@ -1,0 +1,237 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en-US">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>AI-vBrain</title>
+	<meta name='robots' content='noindex, nofollow, noarchive' />
+
+	<link href='https://fonts.gstatic.com/' crossorigin rel='preconnect' />
+	<script type="text/javascript"
+		src="https://ninetheme.com/themes/genai/wp-includes/js/jquery/jquery.min.js?ver=3.7.1"
+		id="jquery-core-js"></script>
+	<script type="text/javascript"
+		src="https://ninetheme.com/themes/genai/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1"
+		id="jquery-migrate-js"></script>
+	<link rel='stylesheet' id='dashicons-css'
+		href='https://ninetheme.com/themes/genai/wp-includes/css/dashicons.min.css?ver=6.6.2' type='text/css'
+		media='all' />
+	<link rel='stylesheet' id='buttons-css'
+		href='https://ninetheme.com/themes/genai/wp-includes/css/buttons.min.css?ver=6.6.2' type='text/css'
+		media='all' />
+	<link rel='stylesheet' id='forms-css' href='https://ninetheme.com/themes/genai/wp-admin/css/forms.min.css?ver=6.6.2'
+		type='text/css' media='all' />
+	<link rel='stylesheet' id='l10n-css' href='https://ninetheme.com/themes/genai/wp-admin/css/l10n.min.css?ver=6.6.2'
+		type='text/css' media='all' />
+	<link rel='stylesheet' id='login-css' href='https://ninetheme.com/themes/genai/wp-admin/css/login.min.css?ver=6.6.2'
+		type='text/css' media='all' />
+	<link rel='stylesheet' id='genai-login-css'
+		href='https://ninetheme.com/themes/genai/wp-content/themes/genai/css/genai-login.css?ver=1.0' type='text/css'
+		media='all' />
+	<meta name='referrer' content='strict-origin-when-cross-origin' />
+	<meta name="viewport" content="width=device-width" />
+	<link rel="icon" href="{% static 'img/slide 2.png'%}" sizes="32x32" />
+	<link rel="icon" href="{% static 'img/slide 2.png'%}" sizes="192x192" />
+	<link rel="apple-touch-icon" href="{% static 'img/slide 2.png'%}" />
+	<meta name="msapplication-TileImage" content="{% static 'img/slide 2.png'%}" />
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<style>
+		#error {
+			display: none;
+		}
+	</style>
+
+</head>
+
+<body class="login no-js login-action-login wp-core-ui  locale-en-us body-dark">
+	<script type="text/javascript">
+		/* <![CDATA[ */
+		document.body.className = document.body.className.replace('no-js', 'js');
+		/* ]]> */
+	</script>
+
+	<div class="wrapper d-flex flex-column justify-between">
+		<div class="flex-grow-1">
+			<section class="account-section login-page py-6 h-full">
+				<div class="container-fluid h-full">
+					<div class="row h-full">
+
+						<div class="col-lg-6 d-none d-lg-block">
+							<div
+								class="bg-dark-blue-4 border rounded-4 h-full p-6 p-md-20 text-center d-flex flex-column justify-center">
+								<h2 class="mb-12 text-white">Unlock the Power of <br class="d-none d-xl-block" /><span
+										class=" text-primary-dark">AI-vBrain</span> Tool</h2> <img
+									src="{% static 'img/slide3.png'%}" alt="AI-vBrain" class="img-fluid w-full" />
+
+							</div>
+						</div>
+
+						<div class="col-lg-6">
+							<div class="close-btn">
+								<a href="/"
+									class="icon bg-gradient-3 text-white w-12 h-12 rounded p-3 border border-white border-opacity-10 d-flex align-center justify-center ms-auto">
+									<svg fill="none" viewBox="0 0 24 24">
+										<g stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+											stroke-width="2">
+											<path d="M18 6 6 18M6 6l12 12" />
+										</g>
+									</svg>
+								</a>
+							</div>
+							<div class="account-wrapper h-full d-flex flex-column justify-center">
+								<div class="text-center login-logo">
+									<a href="" style="text-decoration: none; font-size: 35px; font-weight: bolder;">
+										<h4><span style="color: #e6f667;">AI-</span><span
+												style="color: #fff;">vBrain</span></h4>
+									</a>
+								</div>
+								<div id="login">
+
+
+
+
+
+
+									<div class="row">
+										<div class="card" style="border-radius: 5px; width: 400px; position: absolute; top: 200px; left: 60%; z-index: 10;" id="error">
+											<div class="card-body">
+												<center>
+													<img src="{% static 'img/error.png'%}" alt="error" srcset="">
+												</center>
+												<h4 style="color: black; text-align: center; font-size: 24px;">Error!
+												</h4>
+												<p
+													style="color: red; font-size: 16px; text-align: center; margin-top: 10px;">
+													Incorrect Username or Password</p>
+
+												<button type="button" onclick="Dispapper()" class="btn button-primary"
+													style="margin: 20px;">OK</button>
+											</div>
+
+											<script>
+												function Dispapper(){
+													document.getElementById("error").style.display = "none";
+												}
+											</script>
+										</div>
+									</div>
+
+									{% if error %}
+									<script>
+										document.getElementById('error').style.display = "block";
+									</script>
+									{% endif %}
+
+
+
+									<form name="loginform" id="loginform" action="{% url 'signin'%}" method="post">
+										{% csrf_token %}
+										<p>
+											<label for="user_login">Username</label>
+											<input type="text" name="username" id="user_login" class="input" value=""
+												size="20" autocapitalize="off" autocomplete="username"
+												required="required" />
+										</p>
+
+										<div class="user-pass-wrap">
+											<label for="user_pass">Password</label>
+											<div class="wp-pwd">
+												<input type="password" name="password" id="user_pass"
+													class="input password-input" value="" size="20"
+													autocomplete="current-password" spellcheck="false"
+													required="required" />
+												<button type="button"
+													class="button button-secondary wp-hide-pw hide-if-no-js"
+													data-toggle="0" aria-label="Show password">
+													<span class="dashicons dashicons-visibility"
+														aria-hidden="true"></span>
+												</button>
+											</div>
+										</div>
+										<p class="forgetmenot"><input name="rememberme" type="checkbox" id="rememberme"
+												value="forever" /> <label for="rememberme">Remember Me</label></p>
+										<p class="submit">
+											<input type="submit" name="wp-submit" id="wp-submit"
+												class="button button-primary button-large" value="Log In" />
+											<input type="hidden" name="redirect_to" value="" />
+											<input type="hidden" name="testcookie" value="1" />
+										</p>
+									</form>
+
+
+									<script type="text/javascript">
+										/* <![CDATA[ */
+										function wp_attempt_focus() { setTimeout(function () { try { d = document.getElementById("user_login"); d.focus(); d.select(); } catch (er) { } }, 200); }
+										wp_attempt_focus();
+										if (typeof wpOnload === 'function') { wpOnload() }
+										/* ]]> */
+									</script>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+
+
+
+
+
+
+	<script type="text/javascript"
+		src="https://ninetheme.com/themes/genai/wp-content/themes/genai/js/genai-login.js?ver=1.0"
+		id="genai-login-js"></script>
+	<script type="text/javascript" id="zxcvbn-async-js-extra">
+		/* <![CDATA[ */
+		var _zxcvbnSettings = { "src": "https:\/\/ninetheme.com\/themes\/genai\/wp-includes\/js\/zxcvbn.min.js" };
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="https://ninetheme.com/themes/genai/wp-includes/js/zxcvbn-async.min.js?ver=1.0"
+		id="zxcvbn-async-js"></script>
+	<script type="text/javascript"
+		src="https://ninetheme.com/themes/genai/wp-includes/js/dist/hooks.min.js?ver=2810c76e705dd1a53b18"
+		id="wp-hooks-js"></script>
+	<script type="text/javascript"
+		src="https://ninetheme.com/themes/genai/wp-includes/js/dist/i18n.min.js?ver=5e580eb46a90c2b997e6"
+		id="wp-i18n-js"></script>
+	<script type="text/javascript" id="wp-i18n-js-after">
+		/* <![CDATA[ */
+		wp.i18n.setLocaleData({ 'text direction\u0004ltr': ['ltr'] });
+		/* ]]> */
+	</script>
+	<script type="text/javascript" id="password-strength-meter-js-extra">
+		/* <![CDATA[ */
+		var pwsL10n = { "unknown": "Password strength unknown", "short": "Very weak", "bad": "Weak", "good": "Medium", "strong": "Strong", "mismatch": "Mismatch" };
+		/* ]]> */
+	</script>
+	<script type="text/javascript"
+		src="https://ninetheme.com/themes/genai/wp-admin/js/password-strength-meter.min.js?ver=6.6.2"
+		id="password-strength-meter-js"></script>
+	<script type="text/javascript" src="https://ninetheme.com/themes/genai/wp-includes/js/underscore.min.js?ver=1.13.4"
+		id="underscore-js"></script>
+	<script type="text/javascript" id="wp-util-js-extra">
+		/* <![CDATA[ */
+		var _wpUtilSettings = { "ajax": { "url": "\/themes\/genai\/wp-admin\/admin-ajax.php" } };
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="https://ninetheme.com/themes/genai/wp-includes/js/wp-util.min.js?ver=6.6.2"
+		id="wp-util-js"></script>
+	<script type="text/javascript" id="user-profile-js-extra">
+		/* <![CDATA[ */
+		var userProfileL10n = { "user_id": "0", "nonce": "47760e9f5a" };
+		/* ]]> */
+	</script>
+	<script type="text/javascript" src="https://ninetheme.com/themes/genai/wp-admin/js/user-profile.min.js?ver=6.6.2"
+		id="user-profile-js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing - AIVBRAIN</title>
+    <meta http-equiv="refresh" content="3;url=/t2ViewPredictions/?patientName={{ patient_name }}" />
+
+    <style>
+        /* General Reset */
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1d3557, #457b9d);
+            color: #ffffff;
+        }
+
+        /* Loading Container */
+        .loading-container {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Logo Section */
+        .logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .logo img {
+            width: 80px;
+            height: 80px;
+            margin-right: 10px;
+        }
+        .logo .title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        /* Loading Message */
+        .loading-message {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        /* Spinner Animation */
+        .spinner {
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            border-top: 6px solid #fcbf49;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Additional Information */
+        .details {
+            margin-top: 20px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .details strong {
+            color: #fcbf49;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <!-- Logo Section -->
+        <div class="logo">
+            <!-- <img src="/static/images/aivbrain_logo.png" alt="AIVBRAIN Logo"> -->
+            <div class="title">AIVBRAIN</div>
+        </div>
+
+        <!-- Loading Message -->
+        <div class="loading-message">{{ message }}</div>
+        
+        <!-- Spinner Animation -->
+        <div class="spinner"></div>
+
+        <!-- Additional Details -->
+        <div class="details">
+            <p>We are currently processing your PD file for <strong>{{ patient_name }}</strong>.</p>
+            <p>Please wait as our AI-powered system analyzes and prepares the predictions.</p>
+            <p><em>Powered by AIVBRAIN – Advancing medical imaging with intelligence.</em></p>
+        </div>
+    </div>
+</body>
+</html>
