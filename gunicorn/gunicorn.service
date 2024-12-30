@@ -1,0 +1,16 @@
+[Unit]
+Description=gunicorn daemon
+Requires=gunicorn.socket
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/AI_VBRAIN
+ExecStart=/home/ubuntu/AI_VBRAIN/venv/bin/gunicorn \
+          --access-logfile - \
+          --workers 3 \
+          --bind unix:/run/gunicorn.sock \
+          AI_vBrain.wsgi:application
+[Install]
+WantedBy=multi-user.target
