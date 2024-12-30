@@ -1,0 +1,14 @@
+
+Django
+numpy
+keras
+mysql-connector-python
+mysqlclient
+pandas
+pillow
+tensorflow
+whitenoise
+gunicorn
+nibabel
+scipy
+sqlparse
